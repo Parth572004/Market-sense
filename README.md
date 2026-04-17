@@ -1,20 +1,37 @@
-# Market Sense
+# 🌍 Market Sense — AI Financial Intelligence System
 
-AI-powered market intelligence dashboard that turns market-moving news into geo-mapped personal finance context.
+Market Sense is an AI-powered financial intelligence platform that transforms complex global news into simple, actionable insights.
 
-The original repository contained static Stitch/Tailwind HTML prototypes. This build keeps those files as design references and adds a production-oriented React frontend plus an Express backend.
+It scans live headlines, identifies important geopolitical and market-moving events, maps them on a world map, and explains their impact on markets and everyday personal finances in a clear, easy-to-understand way.
 
-## Tech Stack
+---
 
-- Frontend: React, Vite, Tailwind CSS, Zustand, Axios, Leaflet
-- Backend: Node.js, Express, Zod, Axios, Gemini via `@google/genai`
-- Data safety: live news providers with local fallback data and in-memory TTL cache
-- Hackathon safety: Demo Mode with curated high-impact events
-- Tests: Node test runner and Supertest for backend routes
+## 🚀 Features
 
-## Run Locally
+* 🌍 Geo-mapped global events on an interactive map
+* 🧠 AI-powered explanations using Gemini
+* 💸 Personal finance impact analysis (core feature)
+* ⚡ Quick Scan (real-time + fallback system)
+* 🎯 Demo Mode for hackathon presentations
+* 🧒 Explain Like I’m 15 mode
+* 📊 Debug panel (AI status, classification, processing time)
+* 🔁 Hybrid data system (Live API + fallback JSON)
 
-Install backend dependencies:
+---
+
+## 🛠 Tech Stack
+
+* **Frontend:** React, Vite, Tailwind CSS, Zustand, Axios, Leaflet
+* **Backend:** Node.js, Express, Zod, Axios
+* **AI:** Google Gemini (`@google/genai`)
+* **Data:** NewsAPI / GNews + fallback dataset
+* **Testing:** Node test runner + Supertest
+
+---
+
+## ⚙️ Run Locally
+
+### Backend
 
 ```bash
 cd backend
@@ -23,7 +40,7 @@ cp .env.example .env
 npm run dev
 ```
 
-Install frontend dependencies in a second terminal:
+### Frontend (in a new terminal)
 
 ```bash
 cd frontend
@@ -32,67 +49,68 @@ cp .env.example .env
 npm run dev
 ```
 
-Open:
+### Open App
 
-```text
+```
 http://localhost:5173
 ```
 
-Backend defaults to:
+Backend runs on:
 
-```text
+```
 http://localhost:8080
 ```
 
-## Environment Variables
+---
 
-Backend keys are optional for local fallback mode, but required for live news and AI output:
+## 🔑 Environment Variables
 
-```bash
+### Backend
+
+```env
 NEWS_PROVIDER=auto
-NEWS_API_KEY=
-GNEWS_API_KEY=
-GEMINI_API_KEY=
+NEWS_API_KEY=your_key_here
+GNEWS_API_KEY=optional
+GEMINI_API_KEY=your_key_here
 GEMINI_MODEL=gemini-2.5-flash
 GEMINI_FALLBACK_MODEL=gemini-2.0-flash
+PORT=8080
 ```
 
-Frontend:
+### Frontend
 
-```bash
+```env
 VITE_API_BASE_URL=http://localhost:8080/api
 ```
 
-## API Routes
+---
 
-- `GET /api/health`
-- `GET /api/config`
-- `GET /api/news`
-- `POST /api/analyze`
-- `GET /api/geo-insights`
-- `GET /api/debug`
-- `GET /api/quick-scan`
-- `POST /api/quick-scan`
+## 📡 API Routes
 
-Aliases without `/api` are also registered, for example `/news` and `/quick-scan`.
+* `GET /api/health`
+* `GET /api/config`
+* `GET /api/news`
+* `POST /api/analyze`
+* `GET /api/geo-insights`
+* `GET /api/debug`
+* `GET /api/quick-scan`
+* `POST /api/quick-scan`
 
-## Test Backend
+---
 
-```bash
-cd backend
-npm test
+## 🧠 Core Concept
+
+The system converts raw news into structured financial intelligence:
+
+```
+News → Event Type → Geo Location → Market Impact → Personal Finance Impact → Explanation
 ```
 
-## Build Frontend
+---
 
-```bash
-cd frontend
-npm run build
-```
+## 📊 Event Output Structure
 
-## Strict Event Contract
-
-Every event returned by scan/analyze routes includes:
+Every event follows this strict format:
 
 ```json
 {
@@ -105,18 +123,67 @@ Every event returned by scan/analyze routes includes:
 }
 ```
 
-## Demo Flow
+---
 
-1. Open `http://localhost:5173`.
-2. Run **Quick Scan** for live NewsAPI + Gemini output.
-3. Click a map marker and show the detail panel.
-4. Highlight personal finance impact and suggested action.
-5. Toggle **Explain Like I'm 15** for simpler output.
-6. Toggle **Demo Mode** for curated high-impact events.
-7. Open the debug panel to show source, classification score, AI status, and processing time.
+## 🎬 Demo Flow (Hackathon Ready)
 
-## Notes
+1. Open the app
+2. Click **Quick Scan**
+3. Watch map populate with live events
+4. Click a marker → open detail panel
+5. Show:
 
-- If no external keys are configured, the backend uses `backend/src/data/fallbackNews.json`.
-- Gemini failures do not break the UI; the backend retries a fallback Gemini model and then uses deterministic rule-engine output.
-- The original static screens remain in `stitch_market_sense_intelligence_system/`.
+   * What happened
+   * Why it matters
+   * Market impact
+   * Personal finance impact
+6. Toggle **Explain Like I’m 15**
+7. Enable **Demo Mode** for curated events
+8. (Optional) Open Debug Panel to show AI + system transparency
+
+---
+
+## 🧪 Testing
+
+```bash
+cd backend
+npm test
+```
+
+---
+
+## 🏗 Build
+
+```bash
+cd frontend
+npm run build
+```
+
+---
+
+## ⚠️ Notes
+
+* Works without API keys using fallback dataset
+* Gemini failures are handled via retry + rule-based fallback
+* Designed for **demo reliability + real-world extensibility**
+* Original Stitch UI prototypes are preserved in:
+
+```
+stitch_market_sense_intelligence_system/
+```
+
+---
+
+## 🏆 Project Goal
+
+> “We don’t just show news — we show what the news means for your money.”
+
+---
+
+## 📌 Status
+
+* ✅ Demo-ready
+* ✅ Hackathon-ready
+* 🚀 Production deployment pending
+
+---
