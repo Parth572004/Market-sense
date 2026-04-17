@@ -1,0 +1,92 @@
+[
+  {
+    "title": "RBI keeps repo rate unchanged as food inflation remains sticky",
+    "description": "India's central bank held its key policy rate steady and said inflation risks need close monitoring.",
+    "content": "The Reserve Bank of India kept policy unchanged, pointing to uneven food inflation and global uncertainty.",
+    "url": "https://example.com/rbi-rate-hold",
+    "image": "",
+    "publishedAt": "2026-04-17T03:30:00.000Z",
+    "source": { "name": "Fallback Wire", "url": "https://example.com" }
+  },
+  {
+    "title": "Oil rises after Red Sea shipping disruption renews supply fears",
+    "description": "Energy traders watched shipping routes after fresh disruption in a key corridor raised transport risk.",
+    "content": "Crude prices moved higher as traders assessed possible rerouting costs and insurance premiums.",
+    "url": "https://example.com/red-sea-oil",
+    "image": "",
+    "publishedAt": "2026-04-17T02:45:00.000Z",
+    "source": { "name": "Fallback Wire", "url": "https://example.com" }
+  },
+  {
+    "title": "ECB signals cautious policy path after services inflation surprise",
+    "description": "European policymakers suggested rate cuts may be slower if wage and service prices stay firm.",
+    "content": "The European Central Bank said incoming inflation data would guide future policy decisions.",
+    "url": "https://example.com/ecb-policy-path",
+    "image": "",
+    "publishedAt": "2026-04-17T01:50:00.000Z",
+    "source": { "name": "Fallback Wire", "url": "https://example.com" }
+  },
+  {
+    "title": "US Treasury yields edge higher as Fed officials stress patience",
+    "description": "Bond yields rose after Federal Reserve officials said inflation progress needs confirmation.",
+    "content": "Markets reduced bets on rapid rate cuts as investors processed cautious central bank comments.",
+    "url": "https://example.com/fed-yields",
+    "image": "",
+    "publishedAt": "2026-04-16T23:10:00.000Z",
+    "source": { "name": "Fallback Wire", "url": "https://example.com" }
+  },
+  {
+    "title": "China exports rebound but weak domestic demand weighs on outlook",
+    "description": "China reported stronger exports while household demand remained uneven across major cities.",
+    "content": "The trade data pointed to external strength but persistent pressure inside the domestic economy.",
+    "url": "https://example.com/china-exports",
+    "image": "",
+    "publishedAt": "2026-04-16T21:20:00.000Z",
+    "source": { "name": "Fallback Wire", "url": "https://example.com" }
+  },
+  {
+    "title": "Indian parliament debates fuel tax relief as transport costs climb",
+    "description": "Lawmakers discussed temporary relief measures after higher fuel costs affected logistics and consumers.",
+    "content": "Policy watchers said any tax adjustment could affect state revenues and household transport bills.",
+    "url": "https://example.com/fuel-tax-relief",
+    "image": "",
+    "publishedAt": "2026-04-16T18:00:00.000Z",
+    "source": { "name": "Fallback Wire", "url": "https://example.com" }
+  },
+  {
+    "title": "Copper inventories fall as manufacturers warn of supply-chain delays",
+    "description": "Industrial metal inventories tightened, raising concerns for electronics and electric vehicle inputs.",
+    "content": "Manufacturers said delivery timelines could lengthen if warehouse stocks continue to draw down.",
+    "url": "https://example.com/copper-inventories",
+    "image": "",
+    "publishedAt": "2026-04-16T15:45:00.000Z",
+    "source": { "name": "Fallback Wire", "url": "https://example.com" }
+  },
+  {
+    "title": "Ukraine grain corridor uncertainty lifts wheat prices",
+    "description": "Export concerns around Black Sea routes pushed wheat futures higher in early trading.",
+    "content": "Food importers monitored shipping risk after fresh uncertainty around grain corridor flows.",
+    "url": "https://example.com/grain-corridor",
+    "image": "",
+    "publishedAt": "2026-04-16T12:30:00.000Z",
+    "source": { "name": "Fallback Wire", "url": "https://example.com" }
+  },
+  {
+    "title": "Japan yen strengthens after Bank of Japan hints at gradual tightening",
+    "description": "The yen gained as policymakers signaled they could adjust rates if wage growth continues.",
+    "content": "Currency markets reacted to comments suggesting Japan may slowly move away from ultra-loose policy.",
+    "url": "https://example.com/japan-yen-boj",
+    "image": "",
+    "publishedAt": "2026-04-16T08:40:00.000Z",
+    "source": { "name": "Fallback Wire", "url": "https://example.com" }
+  },
+  {
+    "title": "Global shipping costs rise as insurers reprice conflict risk",
+    "description": "Freight and insurance costs increased across routes exposed to geopolitical tensions.",
+    "content": "Analysts said higher transport costs could feed into import prices if disruptions persist.",
+    "url": "https://example.com/shipping-costs",
+    "image": "",
+    "publishedAt": "2026-04-16T05:55:00.000Z",
+    "source": { "name": "Fallback Wire", "url": "https://example.com" }
+  }
+]

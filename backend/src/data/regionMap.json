@@ -1,0 +1,79 @@
+[
+  {
+    "name": "Global",
+    "lat": 20,
+    "lng": 0,
+    "zoom": 2,
+    "keywords": ["global", "world", "markets", "trade", "supply chain", "shipping"]
+  },
+  {
+    "name": "India",
+    "lat": 20.5937,
+    "lng": 78.9629,
+    "zoom": 4,
+    "keywords": ["india", "indian", "rbi", "rupee", "delhi", "mumbai", "nifty", "sensex", "modi", "parliament"]
+  },
+  {
+    "name": "United States",
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "zoom": 4,
+    "keywords": ["united states", "us ", "u.s.", "america", "fed", "federal reserve", "wall street", "washington", "dollar"]
+  },
+  {
+    "name": "Europe",
+    "lat": 54.526,
+    "lng": 15.2551,
+    "zoom": 4,
+    "keywords": ["europe", "eurozone", "eu ", "ecb", "european", "brussels", "euro"]
+  },
+  {
+    "name": "Middle East",
+    "lat": 29.2985,
+    "lng": 42.551,
+    "zoom": 4,
+    "keywords": ["middle east", "israel", "iran", "iraq", "saudi", "gulf", "red sea", "suez", "opec", "houthis"]
+  },
+  {
+    "name": "China",
+    "lat": 35.8617,
+    "lng": 104.1954,
+    "zoom": 4,
+    "keywords": ["china", "chinese", "beijing", "yuan", "shanghai", "taiwan"]
+  },
+  {
+    "name": "Japan",
+    "lat": 36.2048,
+    "lng": 138.2529,
+    "zoom": 5,
+    "keywords": ["japan", "boj", "tokyo", "yen", "japanese"]
+  },
+  {
+    "name": "United Kingdom",
+    "lat": 55.3781,
+    "lng": -3.436,
+    "zoom": 5,
+    "keywords": ["united kingdom", "uk ", "britain", "boe", "london", "pound"]
+  },
+  {
+    "name": "Russia / Ukraine",
+    "lat": 49.0,
+    "lng": 32.0,
+    "zoom": 4,
+    "keywords": ["russia", "russian", "ukraine", "ukrainian", "moscow", "kyiv", "black sea"]
+  },
+  {
+    "name": "Southeast Asia",
+    "lat": 3.0,
+    "lng": 110.0,
+    "zoom": 4,
+    "keywords": ["asean", "singapore", "indonesia", "vietnam", "malaysia", "philippines", "thailand"]
+  },
+  {
+    "name": "Brazil",
+    "lat": -14.235,
+    "lng": -51.9253,
+    "zoom": 4,
+    "keywords": ["brazil", "brazilian", "sao paulo", "brasilia", "real"]
+  }
+]

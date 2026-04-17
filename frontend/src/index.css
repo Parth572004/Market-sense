@@ -1,0 +1,155 @@
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background: #101419;
+  color: #e0e2ea;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(71, 234, 237, 0.08), transparent 34%),
+    linear-gradient(180deg, #101419 0%, #0a0e13 100%);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.font-headline {
+  font-family: Manrope, system-ui, sans-serif;
+}
+
+.glass-panel {
+  background: rgba(38, 42, 48, 0.62);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.ghost-border {
+  border: 1px solid rgba(59, 73, 73, 0.18);
+}
+
+.btn-gradient {
+  background: linear-gradient(135deg, #47eaed, #00ced1);
+  color: #003738;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: #101419;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.leaflet-control-attribution {
+  background: rgba(10, 14, 19, 0.7) !important;
+  color: #b4cad3 !important;
+}
+
+.leaflet-control-zoom a {
+  background: rgba(24, 28, 33, 0.88) !important;
+  color: #e0e2ea !important;
+  border-color: rgba(59, 73, 73, 0.3) !important;
+}
+
+.pulse-marker {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: #101419;
+  box-shadow: 0 0 12px rgba(71, 234, 237, 0.55);
+}
+
+.marker-appear {
+  animation: marker-appear 420ms ease-out both;
+}
+
+.pulse-marker::before,
+.pulse-marker::after {
+  content: '';
+  position: absolute;
+  inset: -11px;
+  border: 2px solid rgba(71, 234, 237, 0.75);
+  border-radius: 9999px;
+  animation: marker-pulse 2.8s infinite;
+}
+
+.pulse-marker::after {
+  animation-delay: 1.4s;
+}
+
+.pulse-core {
+  position: absolute;
+  inset: 5px;
+  border-radius: 9999px;
+  background: #47eaed;
+}
+
+.pulse-marker.priority-high .pulse-core {
+  background: #ffb4ab;
+  box-shadow: 0 0 14px rgba(255, 180, 171, 0.6);
+}
+
+.pulse-marker.priority-high::before,
+.pulse-marker.priority-high::after {
+  border-color: rgba(255, 180, 171, 0.7);
+}
+
+@keyframes marker-pulse {
+  0% {
+    transform: scale(0.45);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+@keyframes marker-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.35);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scan-sweep {
+  background: conic-gradient(from 180deg, transparent, rgba(71, 234, 237, 0.24), transparent 26%);
+  animation: sweep 1.4s linear infinite;
+}
+
+@keyframes sweep {
+  to {
+    transform: rotate(360deg);
+  }
+}

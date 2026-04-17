@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Market Sense - Recalibrating</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#34cdd1",
+                    "on-tertiary-fixed": "#002021",
+                    "on-surface-variant": "#bac9c9",
+                    "primary-container": "#00ced1",
+                    "inverse-on-surface": "#2d3136",
+                    "tertiary": "#5be9ed",
+                    "on-tertiary": "#003738",
+                    "on-tertiary-fixed-variant": "#004f51",
+                    "error-container": "#93000a",
+                    "primary-fixed": "#5af8fb",
+                    "on-surface": "#e0e2ea",
+                    "background": "#101419",
+                    "on-secondary-fixed": "#091e25",
+                    "on-primary-container": "#005354",
+                    "tertiary-fixed-dim": "#47dade",
+                    "secondary-container": "#384c54",
+                    "on-tertiary-container": "#005355",
+                    "secondary-fixed": "#d0e6ef",
+                    "primary": "#47eaed",
+                    "inverse-primary": "#00696b",
+                    "on-secondary": "#1f333a",
+                    "on-primary": "#003738",
+                    "on-error": "#690005",
+                    "inverse-surface": "#e0e2ea",
+                    "tertiary-fixed": "#6bf7fb",
+                    "on-secondary-container": "#a7bcc5",
+                    "primary-fixed-dim": "#2ddbde",
+                    "on-primary-fixed-variant": "#004f51",
+                    "surface-container-high": "#262a30",
+                    "on-primary-fixed": "#002020",
+                    "surface-container-highest": "#31353b",
+                    "secondary": "#b4cad3",
+                    "outline-variant": "#3b4949",
+                    "surface-variant": "#31353b",
+                    "surface-container": "#1c2025",
+                    "secondary-fixed-dim": "#b4cad3",
+                    "surface": "#101419",
+                    "outline": "#859493",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#e0e2ea",
+                    "surface-container-low": "#181c21",
+                    "on-secondary-fixed-variant": "#364a51",
+                    "surface-container-lowest": "#0a0e13",
+                    "surface-tint": "#2ddbde",
+                    "surface-dim": "#101419",
+                    "error": "#ffb4ab",
+                    "surface-bright": "#36393f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope", "sans-serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"]
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body h-screen w-screen overflow-hidden relative flex flex-col items-center justify-center m-0 p-0">
+<!-- Atmospheric Background layer -->
+<div class="absolute inset-0 z-0 opacity-[0.07] bg-cover bg-center mix-blend-screen" data-alt="abstract minimalist topographic map background in dark midnight tones" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBi74nxbtK8ISIO0RoRl5P87K_jpxO00EDfY3u8xzoHrnT0A6XQCRHxeAMLiZi8-g4R2hKdK4fW6u32aEwYagXsSQKqsPbOPGS8SGQVMSj_sg_o9cu6txkcKMVgMJshegABbB_y5P00Lmo-uPp8ijMyRff4Y_slZ_UEAKOun0DFh54Jj4VHGukoR9-ofjwnLWQfIMZcS4Ce6A8NppmfHM1H_vjD46-VBTyl5oF-dr-JSR-INhbvehyLdYLX8Spy00AF5bEQY0gLAV8l');">
+</div>
+<!-- Vignette / Focus Gradient -->
+<div class="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_10%,theme(colors.background)_80%)]"></div>
+<!-- Main Content Canvas -->
+<main class="relative z-10 flex flex-col items-center justify-center w-full max-w-2xl px-6">
+<!-- Centerpiece: The Intelligence Orb / Radar -->
+<div class="relative w-72 h-72 md:w-96 md:h-96 flex items-center justify-center mb-16">
+<!-- Outer Ambient Ring -->
+<div class="absolute inset-0 rounded-full border border-outline-variant/20 bg-surface-container-lowest/10 backdrop-blur-[2px]"></div>
+<!-- Mid Scanning Ring (Static representation of active radar) -->
+<div class="absolute inset-8 md:inset-12 rounded-full border border-primary-container/30 bg-[conic-gradient(from_120deg_at_50%_50%,transparent_0deg,transparent_260deg,rgba(0,206,209,0.15)_360deg)] shadow-[inset_0_0_40px_rgba(0,206,209,0.05)]"></div>
+<!-- Inner Containment Ring -->
+<div class="absolute inset-20 md:inset-28 rounded-full border border-primary/40 bg-surface-container/60 backdrop-blur-md shadow-[0_0_30px_rgba(71,234,237,0.1)]"></div>
+<!-- The Core Orb -->
+<div class="relative w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-primary to-primary-container shadow-[0_0_60px_rgba(71,234,237,0.6)] flex items-center justify-center before:content-[''] before:absolute before:inset-1 before:rounded-full before:bg-white/30 before:blur-[3px]">
+<span class="material-symbols-outlined text-on-primary-container text-2xl relative z-10" style="font-variation-settings: 'FILL' 1;">my_location</span>
+</div>
+<!-- Floating Data Points (Organic Asymmetry) -->
+<div class="absolute top-1/4 left-4 w-1.5 h-1.5 rounded-full bg-secondary opacity-40 shadow-[0_0_5px_theme(colors.secondary)]"></div>
+<div class="absolute bottom-1/3 right-8 w-2 h-2 rounded-full bg-primary opacity-60 shadow-[0_0_8px_theme(colors.primary)]"></div>
+<div class="absolute top-12 right-1/4 w-1 h-1 rounded-full bg-tertiary-fixed opacity-30"></div>
+</div>
+<!-- Status Typography -->
+<div class="flex flex-col items-center space-y-4 text-center">
+<h1 class="font-headline text-3xl md:text-4xl font-bold text-on-surface tracking-tight drop-shadow-md">
+                Recalibrating Global Intelligence...
+            </h1>
+<!-- Secondary Status with simulated active indicators -->
+<div class="flex items-center space-x-3 bg-surface-container-low/50 px-5 py-2 rounded-full border border-outline-variant/30 backdrop-blur-sm">
+<div class="flex space-x-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_6px_theme(colors.primary)]"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary/50"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary/20"></span>
+</div>
+<p class="font-label text-sm text-secondary tracking-widest uppercase">
+                    Syncing live market signals
+                </p>
+</div>
+</div>
+</main>
+<!-- Bottom Brand Anchor -->
+<div class="absolute bottom-12 z-10 flex items-center space-x-3 opacity-60 mix-blend-screen">
+<span class="font-headline text-sm font-extrabold tracking-[0.2em] text-secondary uppercase drop-shadow-[0_0_4px_rgba(180,202,211,0.3)]">Market Sense</span>
+</div>
+</body></html>

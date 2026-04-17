@@ -1,0 +1,47 @@
+[
+  {
+    "title": "RBI holds rates and warns food inflation can delay household relief",
+    "description": "India's central bank kept rates unchanged as food prices remained sticky, signaling that loan EMIs may not ease soon.",
+    "content": "The RBI said inflation must be watched closely before policy can become easier for borrowers.",
+    "url": "https://example.com/demo-rbi-rates",
+    "image": "",
+    "publishedAt": "2026-04-17T04:00:00.000Z",
+    "source": { "name": "Demo Intelligence Desk", "url": "https://example.com" }
+  },
+  {
+    "title": "Oil jumps after Red Sea attacks force tankers to reroute",
+    "description": "Fresh disruption in the Red Sea raised concerns that shipping and insurance costs will lift fuel-linked inflation.",
+    "content": "Traders watched crude and freight markets after tankers avoided a major shipping corridor.",
+    "url": "https://example.com/demo-red-sea-oil",
+    "image": "",
+    "publishedAt": "2026-04-17T03:35:00.000Z",
+    "source": { "name": "Demo Intelligence Desk", "url": "https://example.com" }
+  },
+  {
+    "title": "China export rebound strains supply chains for electronics makers",
+    "description": "A rebound in Chinese exports increased demand for freight capacity and key components used by manufacturers.",
+    "content": "Electronics and EV supply chains are watching component inventories and port congestion.",
+    "url": "https://example.com/demo-china-exports",
+    "image": "",
+    "publishedAt": "2026-04-17T02:20:00.000Z",
+    "source": { "name": "Demo Intelligence Desk", "url": "https://example.com" }
+  },
+  {
+    "title": "US Treasury yields rise as Fed says inflation progress is not enough",
+    "description": "Higher yields signaled that investors expect borrowing costs to stay elevated for longer.",
+    "content": "Federal Reserve officials said they need more confidence before cutting interest rates.",
+    "url": "https://example.com/demo-fed-yields",
+    "image": "",
+    "publishedAt": "2026-04-17T01:10:00.000Z",
+    "source": { "name": "Demo Intelligence Desk", "url": "https://example.com" }
+  },
+  {
+    "title": "Indian government weighs fuel tax relief before summer travel season",
+    "description": "Policy makers are discussing relief as higher fuel prices pressure commuters and logistics firms.",
+    "content": "The debate could affect household transport bills and government revenue.",
+    "url": "https://example.com/demo-fuel-tax",
+    "image": "",
+    "publishedAt": "2026-04-16T22:15:00.000Z",
+    "source": { "name": "Demo Intelligence Desk", "url": "https://example.com" }
+  }
+]

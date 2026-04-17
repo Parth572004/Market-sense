@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Market Sense Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#34cdd1",
+                    "on-tertiary-fixed": "#002021",
+                    "on-surface-variant": "#bac9c9",
+                    "primary-container": "#00ced1",
+                    "inverse-on-surface": "#2d3136",
+                    "tertiary": "#5be9ed",
+                    "on-tertiary": "#003738",
+                    "on-tertiary-fixed-variant": "#004f51",
+                    "error-container": "#93000a",
+                    "primary-fixed": "#5af8fb",
+                    "on-surface": "#e0e2ea",
+                    "background": "#101419",
+                    "on-secondary-fixed": "#091e25",
+                    "on-primary-container": "#005354",
+                    "tertiary-fixed-dim": "#47dade",
+                    "secondary-container": "#384c54",
+                    "on-tertiary-container": "#005355",
+                    "secondary-fixed": "#d0e6ef",
+                    "primary": "#47eaed",
+                    "inverse-primary": "#00696b",
+                    "on-secondary": "#1f333a",
+                    "on-primary": "#003738",
+                    "on-error": "#690005",
+                    "inverse-surface": "#e0e2ea",
+                    "tertiary-fixed": "#6bf7fb",
+                    "on-secondary-container": "#a7bcc5",
+                    "primary-fixed-dim": "#2ddbde",
+                    "on-primary-fixed-variant": "#004f51",
+                    "surface-container-high": "#262a30",
+                    "on-primary-fixed": "#002020",
+                    "surface-container-highest": "#31353b",
+                    "secondary": "#b4cad3",
+                    "outline-variant": "#3b4949",
+                    "surface-variant": "#31353b",
+                    "surface-container": "#1c2025",
+                    "secondary-fixed-dim": "#b4cad3",
+                    "surface": "#101419",
+                    "outline": "#859493",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#e0e2ea",
+                    "surface-container-low": "#181c21",
+                    "on-secondary-fixed-variant": "#364a51",
+                    "surface-container-lowest": "#0a0e13",
+                    "surface-tint": "#2ddbde",
+                    "surface-dim": "#101419",
+                    "error": "#ffb4ab",
+                    "surface-bright": "#36393f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased selection:bg-primary/30 selection:text-primary min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#101419]/60 backdrop-blur-xl border-b border-[#3b4949]/15 shadow-2xl shadow-black/40">
+<div class="flex justify-between items-center px-8 py-4 w-full max-w-none">
+<div class="text-2xl font-bold tracking-tighter text-[#00ced1] drop-shadow-[0_0_8px_rgba(0,206,209,0.5)] font-headline">Market Sense</div>
+<div class="hidden md:flex gap-8">
+<a class="font-manrope tracking-tight text-sm uppercase font-semibold text-[#b4cad3] hover:text-[#47eaed] transition-colors duration-300" href="#">Global News</a>
+<a class="font-manrope tracking-tight text-sm uppercase font-semibold text-[#b4cad3] hover:text-[#47eaed] transition-colors duration-300" href="#">Geo-Events</a>
+<a class="font-manrope tracking-tight text-sm uppercase font-semibold text-[#b4cad3] hover:text-[#47eaed] transition-colors duration-300" href="#">Impact Analysis</a>
+<a class="font-manrope tracking-tight text-sm uppercase font-semibold text-[#b4cad3] hover:text-[#47eaed] transition-colors duration-300" href="#">Finance Insights</a>
+</div>
+<button class="font-headline tracking-tight text-sm uppercase font-semibold bg-gradient-to-r from-primary to-primary-container text-on-primary-container px-6 py-2 rounded-xl scale-95 active:scale-90 transition-transform shadow-[0_0_12px_rgba(71,234,237,0.3)] hover:shadow-[0_0_20px_rgba(71,234,237,0.5)]">
+                Enter the Intelligence Layer
+            </button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 pb-16">
+<!-- Hero Section -->
+<section class="relative min-h-[870px] flex items-center justify-center px-6 md:px-12 overflow-hidden">
+<!-- Background Map Image -->
+<div class="absolute inset-0 z-0 opacity-40 mix-blend-screen pointer-events-none" data-alt="Cinematic dark world map backdrop with glowing teal network connections and high-tech interface elements overlay" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC9DxtLkE7_j-6JfFA5dQruZexWG6M1z6qcddKttXrwZRvWGePaUZt8l4aoIN4CapNaZM9ZMesvf1fASRfJhwdDzE478Hdr0zWKAejYXQPjycJH1L4AqWvXdP4v7BxlBmeyM5S8y7_vRv7V8mGnj8TikmZNUXOekFNvOns_l2BDjTkFCCkzvn6k6coeeAtaa7u6F-K1nLxI5bR7KDE74s7ZQl1bM7pAWzxwHirUq-rs3VrngZo6c9vVicImazL--gpnn3XWy_CO4O36'); background-size: cover; background-position: center;">
+</div>
+<!-- Dark Vignette Overlay -->
+<div class="absolute inset-0 z-0 bg-gradient-to-b from-background/40 via-background/80 to-background pointer-events-none"></div>
+<div class="relative z-10 text-center max-w-4xl mx-auto flex flex-col items-center gap-8">
+<!-- Intelligence Marker Pulse (Decorative) -->
+<div class="relative w-8 h-8 flex items-center justify-center mb-4">
+<div class="absolute inset-0 rounded-full bg-primary/20 animate-ping" style="animation-duration: 3s;"></div>
+<div class="absolute inset-2 rounded-full bg-primary/40 animate-ping" style="animation-duration: 3s; animation-delay: 0.5s;"></div>
+<div class="relative w-3 h-3 rounded-full bg-primary shadow-[0_0_12px_#47eaed]"></div>
+</div>
+<h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter text-on-surface leading-tight text-transparent bg-clip-text bg-gradient-to-br from-on-surface to-secondary">
+                    The Intelligence Layer for Global Markets
+                </h1>
+<p class="font-body text-lg md:text-xl text-secondary max-w-2xl mx-auto leading-relaxed">
+                    Convert global chaos into geo-mapped clarity and actionable financial insights.
+                </p>
+<div class="mt-8 flex gap-4">
+<button class="font-label font-semibold text-sm tracking-wide bg-gradient-to-br from-primary to-primary-container text-on-primary-container px-8 py-4 rounded-xl shadow-[0_0_15px_rgba(71,234,237,0.4)] hover:shadow-[0_0_25px_rgba(71,234,237,0.6)] transition-all duration-300">
+                        Launch Dashboard
+                    </button>
+</div>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section class="relative z-10 px-6 md:px-12 max-w-7xl mx-auto mt-[-5vh]">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface-container-high/60 backdrop-blur-xl border border-outline-variant/15 rounded-xl p-8 shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex flex-col gap-4 group hover:bg-surface-container-high/80 transition-colors duration-500">
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center shadow-inner text-primary group-hover:shadow-[0_0_12px_rgba(71,234,237,0.2)] transition-shadow">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface">Geo-Spatial Intel</h3>
+<p class="font-body text-sm text-secondary leading-relaxed">
+                        Track geopolitical events in real-time on an interactive global map, visualizing risk before it hits the wire.
+                    </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-high/60 backdrop-blur-xl border border-outline-variant/15 rounded-xl p-8 shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex flex-col gap-4 group hover:bg-surface-container-high/80 transition-colors duration-500">
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center shadow-inner text-primary group-hover:shadow-[0_0_12px_rgba(71,234,237,0.2)] transition-shadow">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface">Impact Analysis</h3>
+<p class="font-body text-sm text-secondary leading-relaxed">
+                        Deep-dive explanations of sudden market moves, connecting disparate global data points into coherent narratives.
+                    </p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-high/60 backdrop-blur-xl border border-outline-variant/15 rounded-xl p-8 shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex flex-col gap-4 group hover:bg-surface-container-high/80 transition-colors duration-500">
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center shadow-inner text-primary group-hover:shadow-[0_0_12px_rgba(71,234,237,0.2)] transition-shadow">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">radar</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface">Personal Pulse</h3>
+<p class="font-body text-sm text-secondary leading-relaxed">
+                        Translate macro chaos into micro impact. Understand exactly how global shifts affect your specific financial positions.
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-8 mt-auto bg-[#0a0e13] bg-gradient-to-t from-[#101419] to-transparent border-t border-outline-variant/10">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto w-full">
+<div class="text-lg font-manrope font-bold text-[#b4cad3]">
+                Market Sense
+            </div>
+<div class="flex gap-6">
+<a class="font-inter text-xs tracking-wider text-[#b4cad3]/60 hover:text-[#47eaed] underline-offset-4 hover:underline transition-all duration-500" href="#">Security</a>
+<a class="font-inter text-xs tracking-wider text-[#b4cad3]/60 hover:text-[#47eaed] underline-offset-4 hover:underline transition-all duration-500" href="#">Privacy Policy</a>
+<a class="font-inter text-xs tracking-wider text-[#b4cad3]/60 hover:text-[#47eaed] underline-offset-4 hover:underline transition-all duration-500" href="#">API Documentation</a>
+<a class="font-inter text-xs tracking-wider text-[#b4cad3]/60 hover:text-[#47eaed] underline-offset-4 hover:underline transition-all duration-500" href="#">Support</a>
+</div>
+<div class="font-inter text-xs tracking-wider text-[#b4cad3]/40">
+                © 2024 Market Sense Intelligence. All Rights Reserved.
+            </div>
+</div>
+</footer>
+</body></html>
