@@ -66,9 +66,11 @@ export function MarketMap({
       <MapContainer
         className="h-full w-full"
         center={defaultMapCenter}
+        dragging={!L.Browser.mobile}
         maxZoom={8}
         minZoom={2}
         scrollWheelZoom
+        tap={!L.Browser.mobile}
         zoom={defaultMapZoom}
         zoomControl
       >

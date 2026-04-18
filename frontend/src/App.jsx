@@ -10,6 +10,7 @@ import { RegionStrip } from './components/RegionStrip.jsx';
 import { SettingsPanel } from './components/SettingsPanel.jsx';
 import { SideNav } from './components/SideNav.jsx';
 import { TopBar } from './components/TopBar.jsx';
+import { BottomNav } from './components/BottomNav.jsx';
 import { useMarketStore } from './store/useMarketStore.js';
 import { collectEventTexts, EMPTY_TRANSLATIONS } from './utils/translations.js';
 
@@ -80,7 +81,7 @@ export default function App() {
       <div className="flex min-h-0 flex-1 overflow-hidden">
         <SideNav />
         <main className="min-h-0 flex-1 overflow-y-auto lg:overflow-hidden">
-          <div className="flex h-full min-h-0 flex-col gap-3 p-3 md:gap-4 md:p-4">
+          <div className="flex h-full min-h-0 flex-col gap-3 p-3 pb-20 md:gap-4 md:p-4 md:pb-4">
             <RegionStrip />
             <ErrorBanner error={error} />
             <div className={`grid min-h-0 flex-1 gap-4 ${desktopDetailLayout}`}>
@@ -123,6 +124,7 @@ export default function App() {
       {modalOpen && <QuickScanModal />}
       {settingsOpen && <SettingsPanel />}
       {debugOpen && <DebugPanel />}
+      <BottomNav />
     </div>
   );
 }

@@ -21,7 +21,7 @@ export function QuickScanModal() {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/12 p-4 backdrop-blur-sm">
+    <div className="fixed inset-0 z-[500] flex items-center justify-center bg-slate-950/12 p-4 backdrop-blur-sm">
       <form
         className="w-full max-w-xl overflow-hidden rounded-[1.75rem] border border-white/12 bg-[linear-gradient(155deg,rgba(2,6,23,0.96),rgba(15,23,42,0.94)_40%,rgba(15,118,110,0.88)_100%)] shadow-[0_28px_80px_rgba(2,6,23,0.38)]"
         onSubmit={submit}

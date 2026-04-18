@@ -97,12 +97,12 @@ export function TopBar() {
             {t(language, 'startupInsights')}
           </button>
           <button
-            className="btn-gradient inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[0.9rem] font-extrabold shadow-glow transition-transform active:scale-95"
+            className="btn-gradient inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-[0.85rem] font-extrabold shadow-glow transition-transform active:scale-95 sm:px-5 sm:text-[0.9rem]"
             onClick={() => setModalOpen(true)}
             type="button"
           >
             <ScanSearch className="h-4 w-4" />
-            {t(language, 'quickScan')}
+            <span className="hidden min-[380px]:inline">{t(language, 'quickScan')}</span>
           </button>
         </div>
       </div>
