@@ -3,7 +3,27 @@ import { env } from '../config/env.js';
 import { buildNewsQuery } from '../utils/classifier.js';
 import { normalizeArticles } from '../utils/normalizeArticle.js';
 import { addDebugLog } from './debugService.js';
-import { loadDemoArticles, loadFallbackArticles } from './fallbackService.js';
+import { loadDemoArticles, loadFallbackArticles, loadStartupFallbackArticles } from './fallbackService.js';
+
+const STARTUP_QUERY = '(startup OR funding OR "venture capital" OR IPO OR unicorn OR acquisition)';
+const STARTUP_KEYWORDS = [
+  'startup',
+  'funding',
+  'venture capital',
+  'vc',
+  'ipo',
+  'unicorn',
+  'acquisition',
+  'acquire',
+  'buyout',
+  'merger',
+  'seed round',
+  'series a',
+  'series b',
+  'series c',
+  'founder'
+];
+const INDIA_HINTS = ['india', 'indian', 'bengaluru', 'bangalore', 'mumbai', 'delhi', 'hyderabad', 'pune', 'chennai'];
 
 function resolveProvider(requestedProvider = 'auto') {
   const provider = requestedProvider === 'auto' ? env.newsProvider : requestedProvider;
@@ -50,10 +70,70 @@ async function fetchFromGNews({ query, limit }) {
   return response.data?.articles || [];
 }
 
+async function loadFallbackDataset(dataset = 'default') {
+  if (dataset === 'startup') {
+    return loadStartupFallbackArticles();
+  }
+
+  return loadFallbackArticles();
+}
+
+function buildQuery(options = {}) {
+  return options.query || buildNewsQuery(options);
+}
+
+function startupText(event = {}) {
+  return `${event.title || ''} ${event.summary || ''} ${(event.matched_keywords || []).join(' ')}`.toLowerCase();
+}
+
+function countKeywordMatches(text, keywords) {
+  return keywords.reduce((score, keyword) => (text.includes(keyword) ? score + 1 : score), 0);
+}
+
+function isStartupEvent(event = {}) {
+  const text = startupText(event);
+  return countKeywordMatches(text, STARTUP_KEYWORDS) > 0;
+}
+
+function prioritizeStartupEvents(events = []) {
+  return [...events]
+    .map((event) => {
+      const text = startupText(event);
+      const keywordScore = countKeywordMatches(text, STARTUP_KEYWORDS);
+      const indiaBoost = event.region === 'India'
+        ? 2
+        : countKeywordMatches(text, INDIA_HINTS) > 0 || event.region === 'Global'
+          ? 1
+          : 0;
+      const publishedAt = Date.parse(event.published_at || '') || 0;
+
+      return {
+        event,
+        score: keywordScore + indiaBoost,
+        publishedAt
+      };
+    })
+    .sort((left, right) => right.score - left.score || right.publishedAt - left.publishedAt)
+    .map(({ event }) => event);
+}
+
+async function fallbackResult({ query, limit, reason, dataset }) {
+  const articles = await loadFallbackDataset(dataset);
+  return {
+    articles: articles.slice(0, limit),
+    provider: 'fallback',
+    query,
+    fromFallback: true,
+    fallbackReason: reason,
+    demoMode: false
+  };
+}
+
 export async function fetchArticles(options = {}) {
   const limit = options.limit || env.maxArticles;
-  const query = buildNewsQuery(options);
+  const query = buildQuery(options);
   const provider = options.demoMode ? 'demo' : resolveProvider(options.provider);
+  const fallbackDataset = options.fallbackDataset || 'default';
 
   if (provider === 'demo') {
     const articles = await loadDemoArticles();
@@ -73,15 +153,12 @@ export async function fetchArticles(options = {}) {
       message: 'Using fallback news dataset because no live provider is configured.',
       source: 'fallback'
     });
-    const articles = await loadFallbackArticles();
-    return {
-      articles: articles.slice(0, limit),
-      provider: 'fallback',
+    return fallbackResult({
       query,
-      fromFallback: true,
-      fallbackReason: 'No live news provider is configured.',
-      demoMode: false
-    };
+      limit,
+      reason: 'No live news provider is configured.',
+      dataset: fallbackDataset
+    });
   }
 
   try {
@@ -104,15 +181,12 @@ export async function fetchArticles(options = {}) {
       source: provider,
       error: error.response?.data?.message || error.message || 'Live news request failed.'
     });
-    const articles = await loadFallbackArticles();
-    return {
-      articles: articles.slice(0, limit),
-      provider: 'fallback',
+    return fallbackResult({
       query,
-      fromFallback: true,
-      fallbackReason: error.response?.data?.message || error.message || 'Live news request failed.',
-      demoMode: false
-    };
+      limit,
+      reason: error.response?.data?.message || error.message || 'Live news request failed.',
+      dataset: fallbackDataset
+    });
   }
 }
 
@@ -148,6 +222,54 @@ export async function fetchNormalizedEvents(options = {}) {
 
   return {
     ...result,
+    events
+  };
+}
+
+export async function fetchStartupEvents(options = {}) {
+  const limit = Math.min(options.limit || 6, 25);
+  const liveFetchLimit = Math.min(Math.max(limit * 3, limit), 25);
+  const result = await fetchArticles({
+    ...options,
+    limit: liveFetchLimit,
+    query: STARTUP_QUERY,
+    fallbackDataset: 'startup'
+  });
+
+  let events = prioritizeStartupEvents(
+    normalizeArticles(result.articles, result.provider)
+      .filter((event) => event.relevant)
+      .filter((event) => isStartupEvent(event))
+      .filter((event) => !options.region || options.region === 'Global' || event.region === options.region)
+  ).slice(0, limit);
+
+  if (!events.length && !result.fromFallback) {
+    addDebugLog({
+      type: 'fallback',
+      message: 'Live provider returned no relevant startup events; startup fallback dataset loaded.',
+      source: result.provider
+    });
+    const fallbackArticles = await loadStartupFallbackArticles();
+    events = prioritizeStartupEvents(
+      normalizeArticles(fallbackArticles, 'fallback')
+        .filter((event) => event.relevant)
+        .filter((event) => isStartupEvent(event))
+        .filter((event) => !options.region || options.region === 'Global' || event.region === options.region)
+    ).slice(0, limit);
+
+    return {
+      ...result,
+      provider: 'fallback',
+      query: STARTUP_QUERY,
+      fromFallback: true,
+      fallbackReason: 'Live provider returned no relevant startup events.',
+      events
+    };
+  }
+
+  return {
+    ...result,
+    query: STARTUP_QUERY,
     events
   };
 }

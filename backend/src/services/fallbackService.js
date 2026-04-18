@@ -6,9 +6,11 @@ import { normalizeArticles } from '../utils/normalizeArticle.js';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const fallbackPath = join(__dirname, '..', 'data', 'fallbackNews.json');
 const demoPath = join(__dirname, '..', 'data', 'demoEvents.json');
+const startupFallbackPath = join(__dirname, '..', 'data', 'startupFallbackNews.json');
 
 let cachedRawArticles = null;
 let cachedDemoArticles = null;
+let cachedStartupArticles = null;
 
 export async function loadFallbackArticles() {
   if (!cachedRawArticles) {
@@ -26,6 +28,15 @@ export async function loadDemoArticles() {
   }
 
   return cachedDemoArticles;
+}
+
+export async function loadStartupFallbackArticles() {
+  if (!cachedStartupArticles) {
+    const content = await readFile(startupFallbackPath, 'utf8');
+    cachedStartupArticles = JSON.parse(content);
+  }
+
+  return cachedStartupArticles;
 }
 
 export async function loadFallbackEvents({ limit = 10, region, category } = {}) {

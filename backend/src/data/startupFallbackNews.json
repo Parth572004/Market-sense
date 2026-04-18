@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Bengaluru fintech startup raises $120 million to expand SME lending",
+    "description": "The funding round was led by global venture capital firms looking for stronger credit access in India.",
+    "content": "The startup plans to use the fresh funding to grow underwriting, hire product teams, and deepen partnerships with small businesses across India.",
+    "url": "https://example.com/startup/bengaluru-fintech-funding",
+    "publishedAt": "2026-04-16T07:10:00.000Z",
+    "source": {
+      "name": "Startup Ledger"
+    }
+  },
+  {
+    "title": "Global AI startup secures Series C funding as enterprise automation budgets rise",
+    "description": "Investors said the venture capital round reflects stronger demand for workflow automation and applied AI tools.",
+    "content": "The startup said it will use the funding to expand into new regions, invest in compliance, and support larger enterprise customers.",
+    "url": "https://example.com/startup/global-ai-series-c",
+    "publishedAt": "2026-04-16T12:25:00.000Z",
+    "source": {
+      "name": "Venture Watch"
+    }
+  },
+  {
+    "title": "Indian health-tech startup explores IPO timeline after reaching operating break-even",
+    "description": "The company said it is evaluating an IPO only after stabilizing margins and scaling its hospital network.",
+    "content": "Bankers expect an IPO window to depend on public-market appetite, profitability visibility, and sector sentiment over the next year.",
+    "url": "https://example.com/startup/indian-healthtech-ipo",
+    "publishedAt": "2026-04-15T10:45:00.000Z",
+    "source": {
+      "name": "India Venture News"
+    }
+  },
+  {
+    "title": "Large software group announces acquisition of cloud security startup",
+    "description": "The acquisition is expected to accelerate product bundling and give early investors a clearer exit benchmark.",
+    "content": "Analysts said the deal could encourage more acquisition activity across enterprise software if integration goes smoothly.",
+    "url": "https://example.com/startup/cloud-security-acquisition",
+    "publishedAt": "2026-04-15T14:00:00.000Z",
+    "source": {
+      "name": "Tech Markets Daily"
+    }
+  },
+  {
+    "title": "Climate-tech unicorn wins fresh backing as investors revisit energy transition startups",
+    "description": "The unicorn said new funding will support manufacturing capacity and longer customer contracts.",
+    "content": "The deal is being watched as a signal for broader risk appetite toward capital-intensive startup models in clean energy.",
+    "url": "https://example.com/startup/climate-unicorn-backing",
+    "publishedAt": "2026-04-14T08:35:00.000Z",
+    "source": {
+      "name": "Global Venture Desk"
+    }
+  },
+  {
+    "title": "Mumbai consumer app startup targets profitability after funding slowdown reshapes hiring",
+    "description": "Founders said the company is shifting from aggressive expansion to cash discipline after a tougher funding cycle.",
+    "content": "The startup is slowing hiring, focusing on repeat users, and preparing for a longer path before the next funding round.",
+    "url": "https://example.com/startup/mumbai-consumer-profitability",
+    "publishedAt": "2026-04-13T09:20:00.000Z",
+    "source": {
+      "name": "Founder Brief"
+    }
+  }
+]

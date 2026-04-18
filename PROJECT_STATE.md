@@ -6,8 +6,10 @@ Market Sense is now a demo-ready financial intelligence system. It does not just
 
 The original repository contained static Stitch/Tailwind HTML prototypes. Those references remain untouched in `stitch_market_sense_intelligence_system/`. The working product now lives in:
 
-- `frontend/`: React + Vite intelligence dashboard
+- `frontend/`: React + Vite intelligence dashboard with a permanent light-mode UI
 - `backend/`: Express API, live news ingestion, Gemini analysis, rule-based impact engine
+
+The dashboard now uses a cleaner permanent light theme, larger typography, an expanded insights panel, and a dedicated **Startup Insights** workflow that layers prediction output on top of the existing classifier and impact engine.
 
 Current maturity level: **Demo Ready MVP**.
 
@@ -90,10 +92,12 @@ External services:
         geoController.js
         newsController.js
         quickScanController.js
+        startupInsightsController.js
       data/
         demoEvents.json
         fallbackNews.json
         regionMap.json
+        startupFallbackNews.json
       routes/
         analyze.routes.js
         config.routes.js
@@ -102,6 +106,7 @@ External services:
         health.routes.js
         news.routes.js
         quickScan.routes.js
+        startupInsights.routes.js
       services/
         aiService.js
         cacheService.js
@@ -136,10 +141,11 @@ User
   |
   v
 React Dashboard
-  |-- Demo Mode toggle
-  |-- Explain Like I'm 15 toggle
+  |-- Quick Scan modal
+  |-- Startup Insights trigger
   |-- Debug panel
   |-- Leaflet map + animated markers
+  |-- Expanded right-side insight panel
   |
   v
 Express API
@@ -160,6 +166,16 @@ Express API
   |      +--> TTL cache
   |      +--> Debug log
   |
+  +--> /api/startup-insights
+  |      |
+  |      +--> Startup-focused news query
+  |      +--> Startup fallback dataset
+  |      +--> Normalizer
+  |      +--> Existing score-based classifier
+  |      +--> Financial Impact Engine
+  |      +--> Gemini startup prediction with rule fallback
+  |      +--> TTL cache
+  |
   +--> /api/analyze
   +--> /api/news
   +--> /api/geo-insights
@@ -168,9 +184,9 @@ Express API
 
 ## 5. Data Flow Explanation
 
-1. The frontend loads `GET /api/config`.
-2. The dashboard starts a scan through `POST /api/quick-scan`.
-3. The backend uses live NewsAPI unless Demo Mode, fallback mode, or a provider failure applies.
+1. The dashboard boots into a default intelligence scan through `POST /api/quick-scan`.
+2. The `Startup Insights` button triggers `GET /api/startup-insights`.
+3. The backend uses live NewsAPI unless fallback mode or a provider failure applies.
 4. Raw articles are normalized into event objects.
 5. The classifier scores keywords into one of five categories:
    - `geopolitics`
@@ -178,11 +194,13 @@ Express API
    - `global_markets`
    - `energy`
    - `inflation`
-6. The location mapper always assigns coordinates, falling back to `Global`.
-7. The Financial Impact Engine generates the mandatory money-impact structure first.
-8. Gemini enhances the rule output second. If the primary Gemini model is busy, the backend retries a fallback Gemini model. If Gemini still fails, rule-engine output is returned.
-9. The frontend renders animated map markers, the news rail, and the detail panel.
-10. `/api/debug` exposes source, classification, AI path, and processing latency.
+6. Startup queries reuse the same classifier and impact engine, with extra startup keywords to keep funding, IPO, unicorn, and acquisition stories relevant.
+7. The location mapper always assigns coordinates, falling back to `Global`.
+8. The Financial Impact Engine generates the mandatory money-impact structure first.
+9. Gemini enhances the rule output second. If the primary Gemini model is busy, the backend retries a fallback Gemini model. If Gemini still fails, rule-engine output is returned.
+10. Startup Insights adds a `prediction` object with short-term, long-term, and confidence fields, using Gemini first and a rule-based fallback second.
+11. The frontend renders animated map markers, the news rail, and the expanded detail panel.
+12. `/api/debug` exposes source, classification, AI path, and processing latency.
 
 ## 6. API Design
 
@@ -250,6 +268,20 @@ Returns:
 - matched keywords
 - AI provider/model/status
 
+### `GET /api/startup-insights`
+
+Returns startup-focused events using startup, funding, venture capital, IPO, unicorn, and acquisition keywords. Each event preserves the standard money-impact contract and adds:
+
+```json
+{
+  "prediction": {
+    "short_term": "...",
+    "long_term": "...",
+    "confidence": "low"
+  }
+}
+```
+
 ## 7. Features Implemented
 
 - Live NewsAPI integration configured and validated.
@@ -265,15 +297,30 @@ Returns:
   - live API primary
   - fallback JSON backup
   - curated demo dataset
-- Demo Mode toggle in frontend.
+- UI refinement summary:
+  - permanent light mode
+  - larger typography and button padding
+  - wider right-side detail panel
+  - removal of frontend Explain Like I'm 15, Demo Mode, and region-filter controls
+- Permanent light-mode dashboard theme.
+- Larger global typography and roomier button spacing.
+- Expanded right-side detail panel with clearer section separation.
+- Startup Insights feature summary:
+  - dedicated header trigger
+  - startup-focused news retrieval
+  - Gemini prediction with rule fallback
+  - prediction rendering in the detail panel
+- `Startup Insights` button and `/api/startup-insights` flow.
+- Startup prediction output with Gemini-first and rule-based fallback logic.
+- Startup-specific fallback dataset for offline/demo resilience.
 - Debug API and frontend Debug Panel.
-- Explain Like I'm 15 mode.
 - Smooth map fly-to on event selection.
 - Pulsing markers with appear animation.
-- Selected region/event highlight.
+- Selected event highlight.
 - Loading scan animation.
 - TTL caching.
-- Debounced region-triggered scans.
+- Demo Mode backend support retained for API compatibility.
+- Explain Like I'm 15 backend support retained for API compatibility.
 - Backend tests for classifier, impact engine, normalizer, and API routes.
 
 ## 8. Features Pending
@@ -376,10 +423,10 @@ Status: **Demo Ready MVP**
 
 Evidence:
 
-- Backend tests: 15 passing.
+- Backend tests: 17 passing.
 - Frontend production build passes.
 - Live `/api/quick-scan` validated with NewsAPI and Gemini.
-- Demo Mode validated.
+- `/api/startup-insights` validated with fallback prediction output.
 - Debug endpoint validated.
 - Fallback mode remains operational.
 
@@ -394,8 +441,11 @@ Evidence:
 - [x] Interactive map
 - [x] Region navigation
 - [x] Quick Scan modal
-- [x] Demo Mode
-- [x] Explain Like I'm 15 mode
+- [x] Permanent light-mode dashboard
+- [x] Expanded detail panel
+- [x] Startup Insights with prediction output
+- [x] Demo mode backend support retained
+- [x] Explain-like-15 backend support retained
 - [x] Debug panel
 - [x] Fallback data path
 - [x] TTL caching
@@ -417,15 +467,17 @@ Evidence:
    - Personal finance impact
    - Suggested action
    - Possible outcomes
-6. Toggle **Explain Like I'm 15** and rerun the scan to show simpler explanations.
-7. Toggle **Demo Mode** to show curated high-impact events if live news is noisy.
-8. Open the **Debug Panel** and show:
+6. Click **Startup Insights** and show the startup-focused feed with:
+   - startup news coverage
+   - prediction section
+   - confidence level
+7. Open the **Debug Panel** and show:
    - source used
    - classification category
    - score
    - Gemini/rule-engine status
    - processing time
-9. Closing line: "This is not stock prediction; it is decision-ready financial context for everyday people."
+8. Closing line: "This is not stock prediction; it is decision-ready financial context for everyday people."
 
 ## 15. Known Weak Points
 
@@ -453,7 +505,7 @@ Evidence:
 ## 17. Next Steps
 
 1. Keep backend and frontend dev servers running for demo.
-2. Use Demo Mode if live provider returns low-impact headlines.
+2. Use the built-in fallback path if the live provider returns low-impact headlines or quota errors.
 3. Run `npm test` in `/backend` before final submission.
 4. Run `npm run build` in `/frontend` before packaging.
 5. If deploying, configure `NEWS_API_KEY` and `GEMINI_API_KEY` in the hosting environment, not in source control.

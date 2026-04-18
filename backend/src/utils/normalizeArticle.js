@@ -6,6 +6,16 @@ import { detectRegion } from './coordinateMapper.js';
 
 function cleanText(value = '') {
   return String(value || '')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<\/?[^>]+>/g, ' ')
+    .replace(/<(?:\/|[a-zA-Z!])[^>\n\r]*/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, '\'')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
     .replace(/\s+/g, ' ')
     .replace(/\[\+\d+ chars\]$/i, '')
     .trim();
@@ -23,7 +33,13 @@ export function normalizeArticle(rawArticle, provider = 'fallback') {
   }
 
   const article = parsed.data;
+  const cleanedTitle = cleanText(article.title);
   const summary = cleanText(article.description || article.content || article.title);
+  const title = cleanedTitle || summary;
+  if (!title) {
+    return null;
+  }
+
   const classification = classifyArticle(article);
   const region = detectRegion(article);
   const publishedAt = article.publishedAt || new Date().toISOString();
@@ -32,7 +48,7 @@ export function normalizeArticle(rawArticle, provider = 'fallback') {
 
   const event = {
     id: createEventId(article),
-    title: cleanText(article.title),
+    title,
     category: classification.category,
     category_label: classification.category_label,
     sub_category: classification.sub_category,

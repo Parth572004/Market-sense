@@ -1,39 +1,45 @@
-import { AlertTriangle, Clock3, MapPin } from 'lucide-react';
-import { formatCategory, getCategoryColor } from '../utils/categoryColors.js';
-import { formatRelativeDate } from '../utils/formatDate.js';
+import { Clock3, MapPin } from 'lucide-react';
+import { formatNewsTimestamp } from '../utils/formatDate.js';
+import { EMPTY_TRANSLATIONS, translateCachedText, translateLabel } from '../utils/translations.js';
 
-export function EventCard({ event, active, onSelect }) {
+export function EventCard({
+  event = null,
+  active = false,
+  onSelect = () => {},
+  isCompact = false,
+  language = 'en',
+  contentTranslations = EMPTY_TRANSLATIONS
+}) {
+  if (!event || typeof event !== 'object') return null;
+
+  const title = translateCachedText(language, contentTranslations, event.title)
+    || translateCachedText(language, contentTranslations, event.summary)
+    || translateCachedText(language, contentTranslations, event.what_happened);
+  const region = translateCachedText(language, contentTranslations, event.region)
+    || translateLabel(language, event.region);
+
+  if (!title) return null;
+
   return (
     <button
-      className={`w-80 shrink-0 rounded-xl p-4 text-left transition-all hover:-translate-y-1 ${
-        active ? 'glass-panel ghost-border shadow-glow' : 'glass-panel ghost-border'
+      className={`${isCompact ? 'w-[12.75rem] p-3' : 'w-[13.75rem] p-3.5'} shrink-0 rounded-[1.2rem] border bg-white text-left shadow-[0_14px_28px_rgba(15,23,42,0.07)] transition-all hover:-translate-y-0.5 ${
+        active ? 'border-primary/25 shadow-[0_18px_36px_rgba(13,148,136,0.16)]' : 'border-outline-variant'
       }`}
       onClick={onSelect}
       type="button"
     >
-      <div className="mb-3 flex items-center gap-2">
-        {event.priority === 'high' ? (
-          <AlertTriangle className="h-4 w-4 text-error" />
-        ) : (
-          <span className="h-2 w-2 rounded-full bg-primary shadow-glow" />
-        )}
-        <span className={`rounded-xl px-2 py-1 text-[10px] font-extrabold uppercase tracking-wider ${getCategoryColor(event.category)}`}>
-          {event.category_label || formatCategory(event.category)}
-        </span>
-        <span className="ml-auto flex items-center gap-1 text-[11px] text-secondary/70">
-          <Clock3 className="h-3 w-3" />
-          {formatRelativeDate(event.published_at)}
-        </span>
-      </div>
-      <h3 className="line-clamp-2 font-headline text-sm font-bold leading-snug text-on-surface">
-        {event.title}
+      <h3 className={`line-clamp-3 font-headline font-bold text-on-surface ${isCompact ? 'text-[0.84rem] leading-5' : 'text-[0.9rem] leading-5'}`}>
+        {title}
       </h3>
-      <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-on-surface-variant">
-        {event.what_happened || event.summary}
-      </p>
-      <div className="mt-3 flex items-center gap-2 text-xs font-semibold text-secondary">
-        <MapPin className="h-3.5 w-3.5 text-primary" />
-        {event.region}
+      <div className={`mt-2.5 space-y-1.5 font-semibold text-secondary ${isCompact ? 'text-[0.7rem]' : 'text-[0.75rem]'}`}>
+        <div className="flex items-center gap-2">
+          <MapPin className="h-3.5 w-3.5 shrink-0 text-primary" />
+          <span className="truncate">{region}</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <Clock3 className="h-3.5 w-3.5 shrink-0 text-primary" />
+          <span>{formatNewsTimestamp(event.published_at, language)}</span>
+        </div>
       </div>
     </button>
   );

@@ -1,8 +1,9 @@
 import L from 'leaflet';
 import { useEffect, useMemo } from 'react';
 import { Circle, MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
-import { useMarketStore } from '../store/useMarketStore.js';
 import { darkTileLayer, defaultMapCenter, defaultMapZoom } from '../utils/mapConfig.js';
+import { formatCategory } from '../utils/categoryColors.js';
+import { EMPTY_TRANSLATIONS, translateCachedText, translateLabel } from '../utils/translations.js';
 
 function createPulseIcon(event, selected, index) {
   const priorityClass = event.priority === 'high' ? 'priority-high' : 'priority-medium';
@@ -22,31 +23,48 @@ function MapNavigator({ selectedEvent }) {
   const map = useMap();
 
   useEffect(() => {
+    const animationFrame = window.requestAnimationFrame(() => {
+      map.attributionControl?.setPrefix(false);
+      map.invalidateSize(false);
+    });
+
+    return () => window.cancelAnimationFrame(animationFrame);
+  }, [map]);
+
+  useEffect(() => {
     if (selectedEvent) {
-      map.flyTo([selectedEvent.lat, selectedEvent.lng], Math.max(selectedEvent.zoom || 4, 4), {
-        duration: 0.8
+      map.invalidateSize(false);
+      map.setView([selectedEvent.lat, selectedEvent.lng], Math.max(selectedEvent.zoom || 4, 4), {
+        animate: false
       });
       return;
     }
 
-    map.flyTo(defaultMapCenter, defaultMapZoom, { duration: 0.8 });
+    map.invalidateSize(false);
+    map.setView(defaultMapCenter, defaultMapZoom, { animate: false });
   }, [map, selectedEvent]);
 
   return null;
 }
 
-export function MarketMap() {
-  const events = useMarketStore((state) => state.events);
-  const selectedEventId = useMarketStore((state) => state.selectedEventId);
-  const setSelectedEvent = useMarketStore((state) => state.setSelectedEvent);
+export function MarketMap({
+  events = [],
+  selectedEventId = null,
+  onSelectEvent = () => {},
+  showSourceMetadata = true,
+  language = 'en',
+  contentTranslations = EMPTY_TRANSLATIONS
+}) {
+  const safeEvents = Array.isArray(events) ? events : [];
   const selectedEvent = useMemo(
-    () => events.find((event) => event.id === selectedEventId) || events[0] || null,
-    [events, selectedEventId]
+    () => safeEvents.find((event) => event.id === selectedEventId) || null,
+    [safeEvents, selectedEventId]
   );
 
   return (
-    <main id="global-pulse" className="absolute inset-0 z-0">
+    <main id="global-pulse" className="relative h-full w-full overflow-hidden">
       <MapContainer
+        className="h-full w-full"
         center={defaultMapCenter}
         maxZoom={8}
         minZoom={2}
@@ -59,36 +77,36 @@ export function MarketMap() {
         {selectedEvent && (
           <Circle
             center={[selectedEvent.lat, selectedEvent.lng]}
-            pathOptions={{ color: '#47eaed', fillColor: '#47eaed', fillOpacity: 0.08, weight: 1 }}
+            pathOptions={{ color: '#0f766e', fillColor: '#0f766e', fillOpacity: 0.12, weight: 1.2 }}
             radius={900000}
           />
         )}
-        {events.map((event, index) => (
+        {safeEvents.map((event, index) => (
           <Marker
-            eventHandlers={{ click: () => setSelectedEvent(event.id) }}
+            eventHandlers={{ click: () => onSelectEvent(event.id) }}
             icon={createPulseIcon(event, selectedEventId === event.id, index)}
             key={event.id}
             position={[event.lat, event.lng]}
           >
             <Popup>
-              <div className="max-w-[220px] text-surface">
-                <strong>{event.title}</strong>
-                <p>{event.region} · {event.category_label || event.category}</p>
+              <div className="max-w-[220px] text-slate-900">
+                <strong>{translateCachedText(language, contentTranslations, event.title)}</strong>
+                <p>
+                  {translateCachedText(language, contentTranslations, event.region) || translateLabel(language, event.region)}
+                  {' | '}
+                  {translateCachedText(language, contentTranslations, event.category_label)
+                    || translateLabel(language, event.category_label)
+                    || formatCategory(event.category, language)}
+                </p>
+                {showSourceMetadata && event.source ? (
+                  <p className="mt-1 text-[0.78rem] text-slate-500">{event.source}</p>
+                ) : null}
               </div>
             </Popup>
           </Marker>
         ))}
       </MapContainer>
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(16,20,25,0.32)_58%,#101419_100%)]" />
-      <div className="pointer-events-none absolute left-4 top-32 z-[401] md:left-28">
-        <h1 className="font-headline text-4xl font-extrabold tracking-tight text-on-surface drop-shadow-lg md:text-5xl">
-          Global Pulse
-        </h1>
-        <p className="mt-2 flex items-center gap-2 text-sm font-semibold text-secondary">
-          <span className="h-2 w-2 rounded-full bg-primary shadow-glow" />
-          Live market intelligence feed
-        </p>
-      </div>
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(255,255,255,0.04)_48%,rgba(255,255,255,0.18)_100%)]" />
     </main>
   );
 }

@@ -8,6 +8,8 @@ import geoInsightsRoutes from './routes/geoInsights.routes.js';
 import healthRoutes from './routes/health.routes.js';
 import newsRoutes from './routes/news.routes.js';
 import quickScanRoutes from './routes/quickScan.routes.js';
+import startupInsightsRoutes from './routes/startupInsights.routes.js';
+import translationRoutes from './routes/translation.routes.js';
 
 export const app = express();
 
@@ -24,6 +26,8 @@ app.use('/api/news', newsRoutes);
 app.use('/api/analyze', analyzeRoutes);
 app.use('/api/geo-insights', geoInsightsRoutes);
 app.use('/api/quick-scan', quickScanRoutes);
+app.use('/api/startup-insights', startupInsightsRoutes);
+app.use('/api/translate', translationRoutes);
 
 // Route aliases match the requested endpoint names while keeping /api as the
 // frontend-facing namespace.
@@ -34,6 +38,8 @@ app.use('/news', newsRoutes);
 app.use('/analyze', analyzeRoutes);
 app.use('/geo-insights', geoInsightsRoutes);
 app.use('/quick-scan', quickScanRoutes);
+app.use('/startup-insights', startupInsightsRoutes);
+app.use('/translate', translationRoutes);
 
 app.use((req, res) => {
   res.status(404).json({

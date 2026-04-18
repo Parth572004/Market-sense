@@ -1,0 +1,9 @@
+
+> market-sense-backend@1.0.0 dev
+> node --watch server.js
+
+Market Sense API listening on http://localhost:8080
+Restarting 'server.js'
+Market Sense API listening on http://localhost:8080
+Restarting 'server.js'
+Market Sense API listening on http://localhost:8080

@@ -1,38 +1,41 @@
 import { X } from 'lucide-react';
 import { useState } from 'react';
 import { useMarketStore } from '../store/useMarketStore.js';
+import { t, translateLabel } from '../utils/translations.js';
 
 const scopes = ['Global Macro', 'US Equities', 'Indian Markets', 'Emerging Markets'];
 
 export function QuickScanModal() {
   const currentScope = useMarketStore((state) => state.scope);
   const currentFocus = useMarketStore((state) => state.focus);
-  const selectedRegion = useMarketStore((state) => state.selectedRegion);
-  const demoMode = useMarketStore((state) => state.demoMode);
   const runScan = useMarketStore((state) => state.runScan);
   const setModalOpen = useMarketStore((state) => state.setModalOpen);
   const scanning = useMarketStore((state) => state.scanning);
+  const language = useMarketStore((state) => state.preferences.language);
   const [scope, setScope] = useState(currentScope);
   const [focus, setFocus] = useState(currentFocus);
 
   const submit = (event) => {
     event.preventDefault();
-    runScan({ scope, focus, region: selectedRegion, demoMode, provider: demoMode ? 'demo' : 'auto' });
+    runScan({ scope, focus });
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-surface/80 p-4 backdrop-blur-sm">
-      <form className="w-full max-w-lg overflow-hidden rounded-xl shadow-glass glass-panel ghost-border" onSubmit={submit}>
-        <header className="flex items-center justify-between bg-surface-container-highest/55 p-5 ghost-border">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/12 p-4 backdrop-blur-sm">
+      <form
+        className="w-full max-w-xl overflow-hidden rounded-[1.75rem] border border-white/12 bg-[linear-gradient(155deg,rgba(2,6,23,0.96),rgba(15,23,42,0.94)_40%,rgba(15,118,110,0.88)_100%)] shadow-[0_28px_80px_rgba(2,6,23,0.38)]"
+        onSubmit={submit}
+      >
+        <header className="flex items-center justify-between border-b border-white/10 bg-white/5 p-6">
           <div>
-            <h2 className="font-headline text-xl font-bold text-on-surface">Configure Quick Scan</h2>
-            <p className="mt-1 text-sm text-secondary">
-              {demoMode ? 'Curated high-impact demo intelligence.' : 'Scan live providers or fallback intelligence.'}
+            <h2 className="font-headline text-[1.55rem] font-bold text-white">{t(language, 'configureQuickScan')}</h2>
+            <p className="mt-2 text-[0.95rem] text-white/72">
+              {t(language, 'quickScanDescription')}
             </p>
           </div>
           <button
-            aria-label="Close"
-            className="rounded-xl p-2 text-secondary transition-colors hover:bg-surface-variant hover:text-on-surface"
+            aria-label={t(language, 'cancel')}
+            className="rounded-2xl p-3 text-white/72 transition-colors hover:bg-white/10 hover:text-white"
             onClick={() => setModalOpen(false)}
             type="button"
           >
@@ -40,50 +43,52 @@ export function QuickScanModal() {
           </button>
         </header>
 
-        <div className="space-y-6 p-5">
+        <div className="space-y-7 p-6">
           <div>
-            <label className="mb-3 block text-sm font-bold text-on-surface">Scan scope</label>
+            <label className="mb-4 block text-[1rem] font-bold text-white">{t(language, 'scanScope')}</label>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {scopes.map((option) => (
                 <button
-                  className={`rounded-xl p-3 text-sm font-semibold transition-colors ghost-border ${
-                    scope === option ? 'bg-primary/15 text-primary' : 'bg-surface-container-low text-secondary hover:text-on-surface'
+                  className={`rounded-2xl border px-4 py-4 text-[0.98rem] font-semibold transition-colors ${
+                    scope === option
+                      ? 'border-primary/30 bg-primary/20 text-white shadow-[0_12px_28px_rgba(13,148,136,0.2)]'
+                      : 'border-white/12 bg-white/5 text-white hover:border-primary/30 hover:bg-white/8 hover:text-white'
                   }`}
                   key={option}
                   onClick={() => setScope(option)}
                   type="button"
                 >
-                  {option}
+                  {translateLabel(language, option)}
                 </button>
               ))}
             </div>
           </div>
 
           <label className="block">
-            <span className="mb-2 block text-sm font-bold text-on-surface">Focus area</span>
+            <span className="mb-3 block text-[1rem] font-bold text-white">{t(language, 'focusArea')}</span>
             <input
-              className="w-full rounded-xl bg-surface-container-low px-4 py-3 text-sm text-on-surface outline-none ghost-border placeholder:text-secondary/60 focus:border-primary"
+              className="w-full rounded-2xl border border-white/12 bg-transparent px-5 py-4 text-[1rem] text-white outline-none placeholder:text-white/45 focus:border-primary"
               onChange={(event) => setFocus(event.target.value)}
-              placeholder="AI sector, fuel prices, supply chains"
+              placeholder={t(language, 'focusPlaceholder')}
               value={focus}
             />
           </label>
         </div>
 
-        <footer className="flex justify-end gap-3 p-5 pt-0">
+        <footer className="flex justify-end gap-3 p-6 pt-0">
           <button
-            className="rounded-xl px-5 py-2 text-sm font-semibold text-on-surface transition-colors hover:bg-surface-variant"
+            className="rounded-2xl px-5 py-3 text-[0.95rem] font-semibold text-white/82 transition-colors hover:bg-white/8 hover:text-white"
             onClick={() => setModalOpen(false)}
             type="button"
           >
-            Cancel
+            {t(language, 'cancel')}
           </button>
           <button
-            className="btn-gradient rounded-xl px-6 py-2 text-sm font-extrabold shadow-glow transition-transform active:scale-95 disabled:opacity-70"
+            className="btn-gradient rounded-2xl px-7 py-3 text-[0.98rem] font-extrabold shadow-glow transition-transform active:scale-95 disabled:opacity-70"
             disabled={scanning}
             type="submit"
           >
-            {scanning ? 'Scanning...' : 'Initiate Scan'}
+            {scanning ? t(language, 'scanning') : t(language, 'initiateScan')}
           </button>
         </footer>
       </form>

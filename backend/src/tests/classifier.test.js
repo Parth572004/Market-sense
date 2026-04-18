@@ -34,6 +34,16 @@ test('filters irrelevant entertainment news', () => {
   assert.equal(result.relevant, false);
 });
 
+test('classifies startup funding news as relevant market coverage', () => {
+  const result = classifyArticle({
+    title: 'AI startup secures Series B funding from venture capital firms',
+    description: 'Investors said the funding reflects stronger enterprise demand.'
+  });
+
+  assert.equal(result.relevant, true);
+  assert.equal(result.category, 'global_markets');
+});
+
 test('builds a scoped query with focus and region', () => {
   const query = buildNewsQuery({
     scope: 'Indian Markets',

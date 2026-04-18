@@ -24,6 +24,7 @@ export const scanQuerySchema = z.object({
   region: z.string().optional(),
   category: z.string().optional(),
   provider: z.enum(['auto', 'newsapi', 'gnews', 'fallback', 'demo']).optional(),
+  forceRefresh: z.coerce.boolean().optional(),
   limit: z.coerce.number().int().min(1).max(25).optional(),
   demoMode: z.coerce.boolean().optional(),
   explainMode: z.enum(['normal', 'simple']).optional()
@@ -35,6 +36,12 @@ export const analyzeBodySchema = z.object({
   explainMode: z.enum(['normal', 'simple']).optional()
 }).refine((value) => value.event || value.events, {
   message: 'Request must include event or events'
+});
+
+export const translateBodySchema = z.object({
+  texts: z.array(z.string().trim().min(1)).min(1).max(80),
+  targetLanguage: z.enum(['en', 'hi', 'bn', 'mr', 'te', 'ta', 'gu']).default('hi'),
+  sourceLanguage: z.string().trim().min(2).max(12).default('auto')
 });
 
 export const eventSchema = z.object({
@@ -57,5 +64,10 @@ export const eventSchema = z.object({
   market_impact: z.array(z.string()),
   personal_finance_impact: z.array(z.string()),
   suggested_action: z.string(),
-  possible_outcomes: z.array(z.string())
+  possible_outcomes: z.array(z.string()),
+  prediction: z.object({
+    short_term: z.string(),
+    long_term: z.string(),
+    confidence: z.enum(['low', 'medium', 'high'])
+  }).optional()
 }).passthrough();

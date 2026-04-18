@@ -1,0 +1,88 @@
+
+> market-sense-frontend@1.0.0 dev
+> vite --host 0.0.0.0
+
+
+  [32m[1mVITE[22m v6.4.2[39m  [2mready in [0m[1m1103[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://100.64.138.22:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://172.30.26.202:[1m5173[22m/[39m
+[2m5:30:59 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/RegionStrip.jsx, /src/index.css[22m
+[2m5:31:04 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/SideNav.jsx, /src/index.css[22m
+[2m5:31:43 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/SideNav.jsx[22m
+[2m5:31:56 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/DetailPanel.jsx, /src/components/EventCard.jsx[22m
+[2m5:32:06 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/DetailPanel.jsx, /src/index.css, /src/components/EventCard.jsx[22m
+[2m5:32:12 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/EventCard.jsx, /src/index.css[22m
+[2m5:32:28 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/EventCard.jsx[22m
+[2m5:32:36 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/NewsRail.jsx, /src/index.css[22m
+[2m5:32:42 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/DetailPanel.jsx, /src/index.css[22m
+[2m5:33:34 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/DetailPanel.jsx[22m
+[2m5:37:57 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/DetailPanel.jsx[22m
+[2m5:38:04 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/NewsRail.jsx, /src/index.css[22m
+[2m5:45:53 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css[22m
+[2m5:45:59 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/TopBar.jsx, /src/index.css[22m
+[2m5:46:05 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/SideNav.jsx, /src/index.css[22m
+[2m5:46:10 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/RegionStrip.jsx, /src/index.css[22m
+[2m5:46:21 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/ErrorBanner.jsx, /src/index.css[22m
+[2m5:46:35 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/MarketMap.jsx, /src/index.css[22m
+[2m5:46:39 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/NewsRail.jsx, /src/index.css[22m
+[2m5:46:53 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/NewsRail.jsx[22m
+[2m5:47:08 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/DetailPanel.jsx, /src/index.css[22m
+[2m5:47:17 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css, /src/components/ErrorBanner.jsx, /src/components/DebugPanel.jsx, /src/components/QuickScanModal.jsx, /src/components/LoadingOverlay.jsx, /src/components/MarketMap.jsx, /src/components/TopBar.jsx, /src/components/RegionStrip.jsx, /src/components/SettingsPanel.jsx, /src/components/SideNav.jsx, /src/components/EventCard.jsx, /src/components/DetailPanel.jsx, /src/components/NewsRail.jsx[22m
+[2m5:50:07 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/MarketMap.jsx, /src/index.css[22m
+[2m5:58:19 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/SideNav.jsx, /src/index.css[22m
+[2m5:58:56 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/SideNav.jsx[22m
+[2m5:59:12 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/NewsRail.jsx, /src/index.css[22m
+[2m5:59:25 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/EventCard.jsx, /src/index.css[22m
+[2m6:01:27 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css, /src/components/ErrorBanner.jsx, /src/components/DebugPanel.jsx, /src/components/QuickScanModal.jsx, /src/components/LoadingOverlay.jsx, /src/components/MarketMap.jsx, /src/components/TopBar.jsx, /src/components/RegionStrip.jsx, /src/components/SettingsPanel.jsx, /src/components/EventCard.jsx, /src/components/DetailPanel.jsx, /src/components/NewsRail.jsx, /src/components/SideNav.jsx[22m
+[2m6:01:33 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/LoadingOverlay.jsx, /src/index.css[22m
+[2m6:01:49 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/LoadingOverlay.jsx[22m
+[2m6:03:27 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css, /src/components/ErrorBanner.jsx, /src/components/DebugPanel.jsx, /src/components/QuickScanModal.jsx, /src/components/MarketMap.jsx, /src/components/TopBar.jsx, /src/components/RegionStrip.jsx, /src/components/SettingsPanel.jsx, /src/components/EventCard.jsx, /src/components/DetailPanel.jsx, /src/components/NewsRail.jsx, /src/components/SideNav.jsx, /src/components/LoadingOverlay.jsx[22m
+[2m6:03:42 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/LoadingOverlay.jsx, /src/index.css[22m
+[2m6:06:03 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/LoadingOverlay.jsx, /src/index.css[22m
+[2m6:08:57 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/LoadingOverlay.jsx, /src/index.css[22m
+[2m6:09:10 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m6:11:58 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/LoadingOverlay.jsx, /src/index.css[22m
+[2m6:12:06 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css, /src/components/ErrorBanner.jsx, /src/components/DebugPanel.jsx, /src/components/QuickScanModal.jsx, /src/components/MarketMap.jsx, /src/components/TopBar.jsx, /src/components/RegionStrip.jsx, /src/components/SettingsPanel.jsx, /src/components/EventCard.jsx, /src/components/DetailPanel.jsx, /src/components/NewsRail.jsx, /src/components/SideNav.jsx, /src/components/LoadingOverlay.jsx[22m
+[2m6:17:09 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css, /src/components/ErrorBanner.jsx, /src/components/DebugPanel.jsx, /src/components/QuickScanModal.jsx, /src/components/MarketMap.jsx, /src/components/TopBar.jsx, /src/components/RegionStrip.jsx, /src/components/SettingsPanel.jsx, /src/components/EventCard.jsx, /src/components/DetailPanel.jsx, /src/components/NewsRail.jsx, /src/components/SideNav.jsx, /src/components/LoadingOverlay.jsx[22m
+[2m6:17:31 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css, /src/components/ErrorBanner.jsx, /src/components/DebugPanel.jsx, /src/components/QuickScanModal.jsx, /src/components/MarketMap.jsx, /src/components/TopBar.jsx, /src/components/RegionStrip.jsx, /src/components/SettingsPanel.jsx, /src/components/EventCard.jsx, /src/components/DetailPanel.jsx, /src/components/NewsRail.jsx, /src/components/SideNav.jsx, /src/components/LoadingOverlay.jsx[22m
+[2m6:17:41 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css[22m
+[2m6:17:49 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/EventCard.jsx, /src/index.css[22m
+[2m6:18:04 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/DetailPanel.jsx, /src/index.css[22m
+[2m6:18:14 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/MarketMap.jsx, /src/index.css[22m
+[2m6:18:20 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/ErrorBanner.jsx, /src/index.css[22m
+[2m6:18:27 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/DebugPanel.jsx, /src/index.css[22m
+[2m6:18:34 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/TopBar.jsx, /src/index.css[22m
+[2m6:19:06 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/TopBar.jsx[22m
+[2m6:23:55 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css, /src/components/ErrorBanner.jsx, /src/components/DebugPanel.jsx, /src/components/QuickScanModal.jsx, /src/components/MarketMap.jsx, /src/components/RegionStrip.jsx, /src/components/SettingsPanel.jsx, /src/components/EventCard.jsx, /src/components/DetailPanel.jsx, /src/components/NewsRail.jsx, /src/components/SideNav.jsx, /src/components/LoadingOverlay.jsx, /src/components/TopBar.jsx[22m
+[2m6:24:07 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css, /src/components/ErrorBanner.jsx, /src/components/DebugPanel.jsx, /src/components/QuickScanModal.jsx, /src/components/MarketMap.jsx, /src/components/RegionStrip.jsx, /src/components/SettingsPanel.jsx, /src/components/EventCard.jsx, /src/components/DetailPanel.jsx, /src/components/NewsRail.jsx, /src/components/SideNav.jsx, /src/components/LoadingOverlay.jsx, /src/components/TopBar.jsx[22m
+[2m6:24:14 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/MarketMap.jsx, /src/components/DetailPanel.jsx[22m
+[2m6:24:20 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/EventCard.jsx, /src/components/DetailPanel.jsx[22m
+[2m6:24:49 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/EventCard.jsx, /src/index.css, /src/components/DetailPanel.jsx[22m
+[2m6:28:58 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css, /src/components/ErrorBanner.jsx, /src/components/DebugPanel.jsx, /src/components/QuickScanModal.jsx, /src/components/MarketMap.jsx, /src/components/RegionStrip.jsx, /src/components/SettingsPanel.jsx, /src/components/EventCard.jsx, /src/components/DetailPanel.jsx, /src/components/NewsRail.jsx, /src/components/SideNav.jsx, /src/components/LoadingOverlay.jsx, /src/components/TopBar.jsx[22m
+[2m6:35:10 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css, /src/components/ErrorBanner.jsx, /src/components/DebugPanel.jsx, /src/components/QuickScanModal.jsx, /src/components/MarketMap.jsx, /src/components/RegionStrip.jsx, /src/components/SettingsPanel.jsx, /src/components/EventCard.jsx, /src/components/DetailPanel.jsx, /src/components/NewsRail.jsx, /src/components/SideNav.jsx, /src/components/LoadingOverlay.jsx, /src/components/TopBar.jsx[22m
+[2m6:35:24 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css, /src/components/ErrorBanner.jsx, /src/components/DebugPanel.jsx, /src/components/QuickScanModal.jsx, /src/components/MarketMap.jsx, /src/components/RegionStrip.jsx, /src/components/SettingsPanel.jsx, /src/components/EventCard.jsx, /src/components/DetailPanel.jsx, /src/components/NewsRail.jsx, /src/components/SideNav.jsx, /src/components/LoadingOverlay.jsx, /src/components/TopBar.jsx[22m
+[2m6:37:57 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css, /src/components/ErrorBanner.jsx, /src/components/DebugPanel.jsx, /src/components/QuickScanModal.jsx, /src/components/MarketMap.jsx, /src/components/RegionStrip.jsx, /src/components/SettingsPanel.jsx, /src/components/EventCard.jsx, /src/components/DetailPanel.jsx, /src/components/NewsRail.jsx, /src/components/SideNav.jsx, /src/components/LoadingOverlay.jsx, /src/components/TopBar.jsx[22m
+[2m6:38:08 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/MarketMap.jsx, /src/index.css[22m
+[2m6:38:19 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/DetailPanel.jsx, /src/index.css[22m
+[2m6:38:32 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/EventCard.jsx, /src/index.css[22m
+[2m6:39:00 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/ErrorBanner.jsx, /src/index.css[22m
+[2m6:39:09 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/DebugPanel.jsx, /src/index.css[22m
+[2m6:42:24 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/EventCard.jsx, /src/index.css[22m
+[2m6:42:33 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/MarketMap.jsx, /src/index.css[22m
+[2m6:42:44 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/NewsRail.jsx, /src/index.css[22m
+[2m6:42:56 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/DetailPanel.jsx, /src/index.css[22m
+[2m6:43:09 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/ErrorBanner.jsx, /src/index.css[22m
+[2m6:43:27 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css[22m
+[2m6:44:46 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/EventCard.jsx, /src/index.css[22m
+[2m6:44:59 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/NewsRail.jsx, /src/index.css[22m
+[2m6:45:12 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/MarketMap.jsx, /src/index.css[22m
+[2m6:45:25 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/DetailPanel.jsx, /src/index.css[22m
+[2m6:45:44 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css[22m
+[2m6:49:12 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/MarketMap.jsx, /src/index.css[22m
+[2m6:49:23 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/NewsRail.jsx, /src/index.css[22m
+[2m6:49:34 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/DetailPanel.jsx, /src/index.css[22m
+[2m6:49:44 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/EventCard.jsx, /src/index.css[22m
+[2m6:50:26 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css[22m
+[2m6:50:41 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css[22m

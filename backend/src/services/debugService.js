@@ -21,7 +21,7 @@ export function setLastScanDebug(debug) {
   };
   addDebugLog({
     type: 'scan',
-    message: 'Quick scan completed',
+    message: debug.message || 'Quick scan completed',
     source: debug.provider,
     fromFallback: debug.fromFallback,
     processingTimeMs: debug.processingTimeMs,

@@ -11,7 +11,7 @@ const LOCATIONS = [
     lat: 20.5937,
     lng: 78.9629,
     zoom: 4,
-    keywords: ['india', 'indian', 'rbi', 'rupee', 'delhi', 'mumbai', 'nifty', 'sensex', 'modi', 'parliament']
+    keywords: ['india', 'indian', 'rbi', 'rupee', 'delhi', 'mumbai', 'nifty', 'sensex', 'modi', 'parliament', 'bengaluru', 'bangalore', 'hyderabad', 'pune', 'chennai']
   },
   {
     region: 'US',

@@ -1,41 +1,55 @@
-import { Globe2 } from 'lucide-react';
+import { Globe2, Sparkles } from 'lucide-react';
 import { useMemo } from 'react';
 import { useMarketStore } from '../store/useMarketStore.js';
-import { debounce } from '../utils/debounce.js';
+import { buildExploreFilters, translateExploreLabel } from '../utils/exploreFilters.js';
+import { t } from '../utils/translations.js';
 
 export function RegionStrip() {
   const config = useMarketStore((state) => state.config);
-  const selectedRegion = useMarketStore((state) => state.selectedRegion);
-  const selectedCategory = useMarketStore((state) => state.selectedCategory);
+  const activeRegion = useMarketStore((state) => state.activeRegion);
+  const activeFeedKind = useMarketStore((state) => state.activeFeedKind);
   const runScan = useMarketStore((state) => state.runScan);
+  const runStartupInsights = useMarketStore((state) => state.runStartupInsights);
   const scanning = useMarketStore((state) => state.scanning);
-  const demoMode = useMarketStore((state) => state.demoMode);
+  const language = useMarketStore((state) => state.preferences.language);
 
-  const regions = config?.regions || [];
-  const debouncedRunScan = useMemo(() => debounce((payload) => runScan(payload), 300), [runScan]);
+  const filters = useMemo(() => buildExploreFilters(config), [config]);
+
+  if (!filters.length) return null;
 
   return (
-    <div className="fixed left-4 right-4 top-20 z-30 md:left-28 md:right-[470px]">
-      <div className="hide-scrollbar flex items-center gap-2 overflow-x-auto rounded-xl bg-surface-container-lowest/55 p-2 backdrop-blur-md ghost-border">
-        <div className="flex shrink-0 items-center gap-2 px-2 text-xs font-bold uppercase tracking-widest text-secondary/80">
+    <div className="relative z-20 shrink-0 md:hidden">
+      <div className="hide-scrollbar flex items-center gap-2 overflow-x-auto rounded-2xl border border-outline-variant bg-white/96 px-3 py-2 shadow-[0_14px_32px_rgba(15,23,42,0.1)] backdrop-blur-md">
+        <div className="flex shrink-0 items-center gap-2 pr-2 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-secondary">
           <Globe2 className="h-4 w-4 text-primary" />
-          Regions
+          {t(language, 'explore')}
         </div>
-        {regions.map((region) => (
-          <button
-            className={`shrink-0 rounded-xl px-3 py-2 text-xs font-semibold transition-colors ${
-              selectedRegion === region.name
-                ? 'bg-primary text-on-primary'
-                : 'bg-surface-container-low text-secondary hover:text-on-surface'
-            }`}
-            disabled={scanning}
-            key={region.name}
-            onClick={() => debouncedRunScan({ region: region.name, category: selectedCategory, demoMode, provider: demoMode ? 'demo' : 'auto' })}
-            type="button"
-          >
-            {region.name}
-          </button>
-        ))}
+        {filters.map((filter) => {
+          const active = activeFeedKind === filter.type && activeRegion === filter.region;
+
+          return (
+            <button
+              className={`shrink-0 rounded-full border px-3 py-2 text-[0.82rem] font-semibold transition-colors ${
+                active
+                  ? 'border-primary/20 bg-primary/10 text-primary'
+                  : 'border-outline-variant bg-surface-container-low text-secondary hover:border-primary/20 hover:text-on-surface'
+              }`}
+              disabled={scanning}
+              key={filter.id}
+              onClick={() => (
+                filter.type === 'startup'
+                  ? runStartupInsights({ region: filter.region, label: filter.label })
+                  : runScan({ region: filter.region, label: filter.label })
+              )}
+              type="button"
+            >
+              <span className="inline-flex items-center gap-2">
+                {filter.type === 'startup' && <Sparkles className="h-3.5 w-3.5" />}
+                {translateExploreLabel(language, filter.label)}
+              </span>
+            </button>
+          );
+        })}
       </div>
     </div>
   );
