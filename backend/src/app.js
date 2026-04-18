@@ -13,10 +13,18 @@ import translationRoutes from './routes/translation.routes.js';
 
 export const app = express();
 
-app.use(cors({
-  origin: env.nodeEnv === 'production' ? env.frontendOrigin : true,
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || env.nodeEnv !== 'production' || origin === env.frontendOrigin) {
+      callback(null, true);
+    } else {
+      callback(null, true); // Allow all during hackathon/demo phase for reliability
+    }
+  },
   credentials: true
-}));
+};
+
+app.use(cors(corsOptions));
 app.use(express.json({ limit: '1mb' }));
 
 app.use('/api/health', healthRoutes);
